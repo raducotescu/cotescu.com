@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+   <head>
+      <title>cotescu.com</title>
+      <link rel="stylesheet" type="text/css" href="style.css">
+   </head>
+   <body>
+      <div id="outer">
+         <div id="inner">
+            <a href="http://radu.cotescu.com" title="Visit Radu's blog"><img src="images/blog128.png" alternate="blog" id="blog"/></a>
+            <a href="https://mail.cotescu.com" title="Check your email"><img src="images/mail128.png" alternate="mail" id="mail"/></a>
+            <a href="https://calendar.cotescu.com" title="Schedule a meeting"><img src="images/calendar128.png" alternate="calendar" id="calendar"/></a>
+            <a href="https://drive.cotescu.com" title="Edit a document"><img src="images/drive128.png" alternate="drive" id="drive"/></a>
+            <p id="message"></p>
+         </div>
+      </div>
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+      <script type="text/javascript">
+      var map = {
+         'blog' : 'Visit Radu\'s blog',
+         'mail' : 'Check your email',
+         'calendar' : 'Schedule a meeting',
+         'drive' : 'Edit a document'
+      };
+      $(function() {
+         $('a').removeAttr('title');
+         $('img').hover(
+               function(event) {
+                  var element = $(this);
+                  $('#message').text(map[element.attr('id')]);
+               },
+               function(event) {
+                  $('#message').text('');
+               }
+            );
+      });
+      </script>
+   </body>
+</html>
